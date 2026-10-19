@@ -4,7 +4,7 @@ export const botConfig = {
   // =========================
   // BOT PRESENCE (what users see under the bot name)
   // =========================
-  // `status` options:
+  // status options:
   // - "online"    = green dot
   // - "idle"      = yellow moon
   // - "dnd"       = red do-not-disturb
@@ -14,7 +14,7 @@ export const botConfig = {
     status: "online",
 
     // Activity lines shown under the bot name.
-    // `type` number mapping from Discord:
+    // type number mapping from Discord:
     // 0 = Playing
     // 1 = Streaming
     // 2 = Listening
@@ -315,10 +315,10 @@ export const botConfig = {
       // - "server_size" = auto-verify everyone only in smaller servers
       defaultCriteria: "none",
 
-      // Days used when `defaultCriteria` is `account_age`.
+      // Days used when defaultCriteria is account_age.
       defaultAccountAgeDays: 7,
 
-      // Member count threshold used when `defaultCriteria` is `server_size`.
+      // Member count threshold used when defaultCriteria is server_size.
       // Example: 1000 means auto-verify if server has fewer than 1000 members.
       serverSizeThreshold: 1000,
 
@@ -393,7 +393,7 @@ export const botConfig = {
       description: "Server {name} counter",
       // Channel type used for counters (typically "voice").
       type: "voice",
-      // Channel name format. `{count}` is replaced automatically.
+      // Channel name format. {count} is replaced automatically.
       channelName: "{name}-{count}",
     },
     permissions: {
@@ -446,7 +446,7 @@ export const botConfig = {
   // =========================
   // FEATURE TOGGLES
   // =========================
-  // Set any feature to `false` to disable it globally.
+  // Set any feature to false to disable it globally.
   features: {
     // Core systems.
     economy: true,
@@ -580,7 +580,7 @@ export function getBotMessage(key, replacements = {}) {
   let message = botConfig.messages?.[key] || key;
 
   for (const [placeholder, value] of Object.entries(replacements)) {
-    message = message.replace(new RegExp(`\\{${placeholder}\\}`, "g"), String(value));
+    message = message.replace(new RegExp(\\{${placeholder}\\}, "g"), String(value));
   }
 
   return message;
@@ -646,3 +646,6 @@ export function getRandomColor() {
     typeof color === "string" ? color : Object.values(color),
   );
   return colors[Math.floor(Math.random() * colors.length)];
+}
+
+export default botConfig;
